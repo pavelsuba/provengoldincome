@@ -1,0 +1,4 @@
+apt_cache_valid_time: 86400
+default_timezone: Europe/Prague
+hhvm: true
+www_root: /srv/www

@@ -1,0 +1,27 @@
+# Documentation: https://roots.io/trellis/docs/local-development-setup/
+wordpress_sites:
+  provengoldincome.com:
+    site_hosts:
+      - provengoldincome.dev
+    local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
+    site_install: true
+    site_title: Proven Gold Income
+    admin_user: admin
+    admin_password: admin
+    admin_email: admin@provengoldincome.com
+    multisite:
+      enabled: true
+      subdomains: info
+    ssl:
+      enabled: false
+    cache:
+      enabled: false
+      duration: 30s
+    env:
+      disable_wp_cron: true
+      wp_home: http://provengoldincome.dev
+      wp_siteurl: http://provengoldincome.dev/wp
+      wp_env: development
+      db_name: example_dev
+      db_user: example_dbuser
+      db_password: example_dbpassword
