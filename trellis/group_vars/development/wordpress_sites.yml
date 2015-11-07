@@ -3,6 +3,7 @@ wordpress_sites:
   provengoldincome.com:
     site_hosts:
       - provengoldincome.dev
+      - info.provengoldincome.dev
     local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
     site_install: true
     site_title: Proven Gold Income
@@ -11,7 +12,7 @@ wordpress_sites:
     admin_email: admin@provengoldincome.com
     multisite:
       enabled: true
-      subdomains: info
+      subdomains: true
     ssl:
       enabled: false
     cache:

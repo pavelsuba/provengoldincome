@@ -32,16 +32,22 @@ Vagrant.configure('2') do |config|
   config.ssh.forward_agent = true
 
   # Required for NFS to work, pick any local IP
-  config.vm.network :private_network, ip: '192.168.50.5'
+  PRIVATE_IP = '192.168.50.5'
+  config.vm.network :private_network, ip: PRIVATE_IP
 
   hostname, *aliases = wordpress_sites.flat_map { |(_name, site)| site['site_hosts'] }
   config.vm.hostname = hostname
   www_aliases = ["www.#{hostname}"] + aliases.map { |host| "www.#{host}" }
 
-  if Vagrant.has_plugin? 'vagrant-hostsupdater'
-    config.hostsupdater.aliases = aliases + www_aliases
+  if Vagrant.has_plugin? 'landrush'
+    config.landrush.enabled = true
+    config.landrush.tld = config.vm.hostname
+    aliases.each do |host|
+      config.landrush.host host, PRIVATE_IP
+    end
   else
-    fail_with_message "vagrant-hostsupdater missing, please install the plugin with this command:\nvagrant plugin install vagrant-hostsupdater"
+    puts 'landrush missing, please install the plugin:'
+    puts 'vagrant plugin install landrush'
   end
 
   if Vagrant::Util::Platform.windows?
