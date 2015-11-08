@@ -1,35 +1,37 @@
 # Documentation: https://roots.io/trellis/docs/remote-server-setup/
 wordpress_sites:
-  example.com:
+  provengoldincome.com:
     site_hosts:
-      - example.com
+      - provengoldincome.com
+      - info.provengoldincome.com
     local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
-    repo: git@github.com:roots/bedrock.git
+    repo: git@github.com:pavelsuba/provengoldincome.git
     branch: master
-    # subtree_path: site # relative path to your Bedrock/WP directory in your repo (above) if it is not the root (like the roots-example-project structure)
+    subtree_path: site # relative path to your Bedrock/WP directory in your repo (above) if it is not the root (like the roots-example-project structure)
     multisite:
-      enabled: false
-      subdomains: false
+      enabled: true
+      subdomains: true
     ssl:
       enabled: false
     cache:
-      enabled: false
-      duration: 30s
+      enabled: true
+      duration: 10s
     env:
+      domain_current_site: provengoldincome.com
       disable_wp_cron: true
-      wp_home: http://example.com
-      wp_siteurl: http://example.com/wp
+      wp_home: http://provengoldincome.com
+      wp_siteurl: http://provengoldincome.com/wp
       wp_env: production
-      db_name: example_prod
-      db_user: example_dbuser
-      db_password: example_dbpassword
+      db_name: provengoldincome_prod
+      db_user: provengoldincome_dbuser
+      db_password: provengoldincome_dbpassword
       # Generate your keys here: https://api.wordpress.org/secret-key/1.1/salt/
       # These CANNOT contain the characters "{%" in succession
-      auth_key: "generateme"
-      secure_auth_key: "generateme"
-      logged_in_key: "generateme"
-      nonce_key: "generateme"
-      auth_salt: "generateme"
-      secure_auth_salt: "generateme"
-      logged_in_salt: "generateme"
-      nonce_salt: "generateme"
+      auth_key: "mifSIJ%iTfL}Gv/!uU#-FLEqtxl{B:ZkeX%1oh&7[oIj!4Toq*2Ac)+Lk@8,2GjC"
+      secure_auth_key: "o-I=D?<Mupx.bV5L`WEx]5D>x =`TguYQEpOzdcye%*+|GqI}`- z>8YwaQY%P3s"
+      logged_in_key: "7~;7AxEnf-pA)Xw0VTRiL9O$w8IRR?MTv.,Wn^nLFvrBy7~0l*5r(&$CXwL?u|6z"
+      nonce_key: "e q*9*j`i%(=.2CV&W/wXi#+j}Aba!w*pI!1wq6!S:l@A|@;p#YE.:GHno[qrv3p"
+      auth_salt: "6*Mr?ky{;9|6xU(!2aW=OlrSUjfk)+]yJ&kUkd^$l_!wMUS0^5~5Oy)3iE1(?Q*g"
+      secure_auth_salt: "moj!K*wv%k[nZ)Z_zPf![0AzU2Y1YEv{GfkX9kCvQ2/an4Bu/M!yMdU,:>9FT6hX"
+      logged_in_salt: "k0.B|WEAYj4,_DobcR6ttGWni&uO5*TdB.! W.t99dClin4$!T|??DwcgRX27+me"
+      nonce_salt: "QV[QG2#P7qZs&R$(,_h>RueQE.`qF#_C+qR>NvFe`QnT$|O;|evEuYqrch^?$vn4"

@@ -1,6 +1,6 @@
 # Documentation: https://roots.io/trellis/docs/mail/
-mail_smtp_server: smtp.example.com:587
-mail_admin: admin@example.com
-mail_hostname: example.com
-mail_user: smtp_user
-mail_password: smtp_password
+mail_smtp_server: smtp.sendgrid.net:587
+mail_admin: admin@provengoldincome.com
+mail_hostname: provengoldincome.com
+mail_user: info@provengoldincome.com
+mail_password: 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
